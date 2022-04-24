@@ -7,8 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class AdminUpdateInfoDto {
-    private String oldLogin;
+public class UserPersonalInfoDto {
     private String login;
     private String mobileNumber;
     private String password;

@@ -1,7 +1,7 @@
 package app.controller;
 
-import app.dto.AdminInfoDto;
-import app.dto.AdminUpdateInfoDto;
+import app.dto.UserPersonalInfoDto;
+import app.dto.UserUpdateInfoDto;
 import app.entity.User;
 import app.mapper.AdminMapper;
 import app.service.user_service.UserService;
@@ -25,9 +25,9 @@ public class AdminPersonalInfoController {
     private UserValidation userValidation;
 
     @PostMapping("/adminPanel/personalInformation")
-    public ResponseEntity<AdminInfoDto> getAdminInfo(@RequestBody final User user) {
+    public ResponseEntity<UserPersonalInfoDto> getAdminInfo(@RequestBody final User user) {
         if (userValidation.checkUserForExistByLogin(user.getLogin())) {
-            AdminInfoDto adminInfoDto = userMapper.getAdminInfoDtoFromUser(userService.findUserByLogin(user.getLogin()));
+            UserPersonalInfoDto adminInfoDto = userMapper.getAdminInfoDtoFromUser(userService.findUserByLogin(user.getLogin()));
             return new ResponseEntity<>(adminInfoDto, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -35,7 +35,7 @@ public class AdminPersonalInfoController {
     }
 
     @PostMapping("/adminPanel/updateAdminInfo")
-    public HttpStatus updateAdminPersonalInfo(@RequestBody final AdminUpdateInfoDto admin) {
+    public HttpStatus updateAdminPersonalInfo(@RequestBody final UserUpdateInfoDto admin) {
         if (userValidation.checkUserForExistByLogin(admin.getOldLogin())) {
             User user = userMapper.getUserFromAdminUpdateInfoDto(admin);
             userService.updateUserInfoByLogin(admin.getOldLogin(), user);

@@ -22,15 +22,15 @@ public class AdminMapper {
         return userForAdminPanelDtoList;
     }
 
-    public AdminInfoDto getAdminInfoDtoFromUser(User user) {
-        AdminInfoDto adminInfoDto = new AdminInfoDto();
+    public UserPersonalInfoDto getAdminInfoDtoFromUser(User user) {
+        UserPersonalInfoDto adminInfoDto = new UserPersonalInfoDto();
         adminInfoDto.setLogin(user.getLogin());
         adminInfoDto.setMobileNumber(user.getUserInfoId().getMobileNumber());
         adminInfoDto.setPassword(user.getPassword());
         return adminInfoDto;
     }
 
-    public User getUserFromAdminUpdateInfoDto(AdminUpdateInfoDto admin) {
+    public User getUserFromAdminUpdateInfoDto(UserUpdateInfoDto admin) {
         User user = new User();
         user.setLogin(admin.getLogin());
         user.setPassword(admin.getPassword());
