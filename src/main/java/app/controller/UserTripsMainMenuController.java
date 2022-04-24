@@ -16,7 +16,6 @@ import java.util.List;
 @CrossOrigin("http://localhost:8080")
 @RestController
 public class UserTripsMainMenuController {
-
     @Autowired
     private FlightService flightService;
     @Autowired

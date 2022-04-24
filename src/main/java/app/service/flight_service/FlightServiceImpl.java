@@ -9,7 +9,6 @@ import java.util.List;
 
 @Service
 public class FlightServiceImpl implements FlightService {
-
     @Autowired
     private FlightRepository flightRepository;
 
