@@ -2,6 +2,7 @@ package app.service.trip_service;
 
 import app.dto.TripToFindTicketDto;
 import app.dto.TripToOrderDto;
+import app.entity.Flight;
 import app.entity.Trip;
 import app.repository.TripRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +36,15 @@ public class TripServiceImpl implements TripService {
             }
         }
         return trips;
+    }
+
+    @Override
+    public Trip findTrip(String date, Flight flight) {
+        return tripRepository.findByDateOfTripAndFlightId(date, flight);
+    }
+
+    @Override
+    public void updateAmountOfPlaces(Integer place, Flight flight, String date) {
+        tripRepository.updateAmountOfPlaces(place, flight, date);
     }
 }

@@ -6,7 +6,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
 public class UserPersonalInfoDto {
     private String login;
     private String mobileNumber;

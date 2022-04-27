@@ -1,6 +1,6 @@
 package app.controller;
 
-import app.dto.UserRegistrationDto;
+import app.dto.UserPersonalInfoDto;
 import app.entity.Role;
 import app.entity.Status;
 import app.enums.RoleEnum;
@@ -40,7 +40,7 @@ public class RegistrationController {
     }
 
     @PostMapping("/registration")
-    public HttpStatus registrationUser(@RequestBody final UserRegistrationDto userDto) {
+    public HttpStatus registrationUser(@RequestBody final UserPersonalInfoDto userDto) {
         if (registrationValidation.checkLoginForExists(userDto.getLogin())) {
             return HttpStatus.BAD_REQUEST;
         } else {
